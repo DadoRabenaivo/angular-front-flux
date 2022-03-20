@@ -3,7 +3,7 @@
     width: 100vw;
     background-image: url("../../../assets/images/im2.jpg");
     background-repeat: no-repeat;
-    background-size: 1400px 768px ;
+    background-size: cover ;
     background-position: center;
     background-attachment: fixed;
 }
