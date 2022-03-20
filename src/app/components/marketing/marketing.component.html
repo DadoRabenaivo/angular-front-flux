@@ -1,0 +1,154 @@
+<app-navbar></app-navbar>
+
+<div class="mt-5 d-flex flex-row">
+    <div class="container fiche-sizing">
+        <!--Fiche produit-->
+        <div class="container glass-style">
+            <h1>Produit</h1>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">En stock</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Chocolatine</th>
+                    <td>9</td>
+                    <td>1500</td>
+                    <td>10</td>
+                    <td> 
+                        <a type="button" class="btn btn-primary p-1" data-bs-toggle="modal" data-bs-target="#modifierModal">Modifier</a>
+                        <a type="button" class="btn btn-danger p-1">Supprimer</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <!--Fin Fiche produit-->
+        <!--Fiche clients-->
+        <div class="container mt-5 glass-style">
+            <h1>Client</h1>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Produit préféré</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Dimitri</th>
+                    <td>29</td>
+                    <td>3544 Grove Street</td>
+                    <td>Chocolatine</td>
+                    <td> 
+                        <a type="button" class="btn btn-primary p-1" data-bs-toggle="modal" data-bs-target="#modifierClientModal">Modifier</a>
+                        <a type="button" class="btn btn-danger p-1">Supprimer</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <!--Fin Fiche clients-->
+    </div>
+
+    <div class="container w-25">
+        <div class="container glass-style">
+            <h1>Stock Produit</h1>
+            <figure class="pie-chart container">
+              <figcaption>
+                Coal 38<span style="color:#4e79a7"></span><br>
+                Natural Gas 23<span style="color:#f28e2c"></span><br>
+                Hydro 16<span style="color:#e15759"></span><br>
+                Nuclear 10<span style="color:#76b7b2"></span><br>
+                Renewable 6<span style="color:#59a14f"></span><br>
+                Other 7<span style="color:#edc949"></span>
+              </figcaption>
+            </figure>
+        </div>
+    </div>
+</div>
+
+<!--Product modification modal-->
+<div class="modal fade glass-style" id="modifierModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-style">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modification</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="w-50 mx-auto mt-3">
+                <div class="mb-3 row">
+                    <label for="inputNom" class="col-sm-2 col-form-label">Nom</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control form-control-sm" id="inputNom">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label for="inputPrix" class="col-sm-2 col-form-label">Prix</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control form-control-sm" id="inputPrix">
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-primary">Valider Changement</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End Product modification modal-->
+<!--Client modification modal-->
+<div class="modal fade glass-style" id="modifierClientModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-style">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modification</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="w-75 mx-auto mt-3">
+              <div class="mb-3 row">
+                  <label for="inputNomClient" class="col-sm-2 col-form-label">Nom</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" id="inputNomClient">
+                  </div>
+                </div>
+                <div class="mb-3 row">
+                  <label for="inputAge" class="col-sm-2 col-form-label">Age</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" id="inputAge">
+                  </div>
+                </div>
+                <div class="mb-3 row">
+                  <label for="inputAdresse" class="col-sm-2 col-form-label">Adresse</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" id="inputAdresse">
+                  </div>
+                </div>
+                <div class="mb-3 row">
+                  <label for="inputProduit" class="col-sm-2 col-form-label">Produit préféré</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" id="inputProduit">
+                  </div>
+                </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-primary">Valider Changement</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Client modification modal-->
+    

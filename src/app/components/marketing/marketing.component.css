@@ -1,0 +1,11 @@
+.fiche-sizing{
+    width: 70vw;
+}
+.modal-style{
+    backdrop-filter: blur(1rem);
+    box-shadow: 1.3rem 1.3rem 1.3rem rgba(0,0,0,0.5);
+    background-color: rgba(225,225,225,0.08);
+}
+*{
+    animation: apparition 2s;
+}

@@ -1,0 +1,22 @@
+.navglass{
+    border: 1px solid transparent;
+    backdrop-filter: blur(1rem);
+    box-shadow: 1.3rem 1.3rem 1.3rem rgba(0,0,0,0.5);
+    background-color: rgba(225,225,225,0.1);
+    animation: apparition 4s;
+}
+.icon-sizing{
+    max-width: 30px;
+}
+
+@keyframes apparition {
+    from{
+    
+        opacity: 0;
+    }
+    to{
+    
+        opacity: 1;
+    }
+    
+}
