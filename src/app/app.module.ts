@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule} from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
@@ -15,6 +16,7 @@ import { LogistiqueComponent } from './components/logistique/logistique.componen
 import { StockComponent } from './components/stock/stock.component';
 import { HistoriqueComponent } from './components/historique/historique.component';
 import { NotificationComponent } from './components/notification/notification.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -36,7 +38,9 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     [RouterModule.forRoot(routes)],
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
