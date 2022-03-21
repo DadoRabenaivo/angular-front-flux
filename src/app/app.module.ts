@@ -17,17 +17,18 @@ import { StockComponent } from './components/stock/stock.component';
 import { HistoriqueComponent } from './components/historique/historique.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { FormsModule } from '@angular/forms';
+import { AuthGuard } from 'src/auth/auth.guard';
 
 
 
 const routes: Routes = [
   {path:'',component: LoginComponent},
-  { path: 'marketing', component: MarketingComponent },
-  { path: 'stock', component: StockComponent },
-  { path: 'logistique', component: LogistiqueComponent },
-  { path: 'production', component: ProductionComponent },
-  { path: 'historique', component: HistoriqueComponent },
-  { path: 'notification', component: NotificationComponent },
+  { path: 'marketing', component: MarketingComponent, canActivate: [AuthGuard] },
+  { path: 'stock', component: StockComponent, canActivate: [AuthGuard] },
+  { path: 'logistique', component: LogistiqueComponent, canActivate: [AuthGuard] },
+  { path: 'production', component: ProductionComponent, canActivate: [AuthGuard] },
+  { path: 'historique', component: HistoriqueComponent, canActivate: [AuthGuard] },
+  { path: 'notification', component: NotificationComponent, canActivate: [AuthGuard] },
 
 ]
 @NgModule({

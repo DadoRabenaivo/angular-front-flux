@@ -1,6 +1,8 @@
+import { Department } from "./department";
+
 export interface User {
-    username : string,
-    password : string,
-    matricule : string,
-    department : string
+    Username : string,
+    Password : string,
+    Matricule : string,
+    Department : Department
 }
