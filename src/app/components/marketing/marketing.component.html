@@ -12,14 +12,15 @@
                     <th scope="col">Score</th>
                     <th scope="col">Prix</th>
                     <th scope="col">En stock</th>
+                    <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">Chocolatine</th>
-                    <td>9</td>
-                    <td>1500</td>
-                    <td>10</td>
+                  <tr *ngFor="let product of products">
+                    <td scope="col">{{ product.Name }}</td>
+                    <td scope="col">{{ product.Score }}</td>
+                    <td scope="col">{{ product.Price + " MGA" }}</td>
+                    <td scope="col">{{ product.InStock }}</td>
                     <td> 
                         <a type="button" class="btn btn-primary p-1" data-bs-toggle="modal" data-bs-target="#modifierModal">Modifier</a>
                         <a type="button" class="btn btn-danger p-1">Supprimer</a>
@@ -35,18 +36,19 @@
             <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Nom</th>
+                    <th scope="col">Region</th>
                     <th scope="col">Age</th>
-                    <th scope="col">Adresse</th>
+                    <th scope="col">Sexe</th>
                     <th scope="col">Produit préféré</th>
+                    <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">Dimitri</th>
-                    <td>29</td>
-                    <td>3544 Grove Street</td>
-                    <td>Chocolatine</td>
+                  <tr *ngFor="let client of clients">
+                    <td>{{ client.Locality }}</td>
+                    <td>{{ client.Age }}</td>
+                    <td>{{ client.Sex }}</td>
+                    <td>{{ client.PreferedProduct }}</td>
                     <td> 
                         <a type="button" class="btn btn-primary p-1" data-bs-toggle="modal" data-bs-target="#modifierClientModal">Modifier</a>
                         <a type="button" class="btn btn-danger p-1">Supprimer</a>

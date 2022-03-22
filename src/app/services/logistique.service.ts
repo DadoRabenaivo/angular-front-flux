@@ -8,12 +8,12 @@ import { Equipment } from "../interfaces/equipment";
 @Injectable({
     providedIn: 'root'
 })
-export class EquipmentService {
-    private endpoint = environment.API_URL + "api/equipments/";
+export class LogistiqueService {
+    private url = environment.API_URL;
 
     constructor(private http: HttpClient) { }
 
     getEquipments(): Observable<Array<Equipment>> {
-        return this.http.get<Array<Equipment>>(this.endpoint);
+        return this.http.get<Array<Equipment>>(this.url + "api/equipments/");
     }
 }

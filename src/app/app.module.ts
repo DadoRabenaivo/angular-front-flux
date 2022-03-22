@@ -23,10 +23,10 @@ import { DataTablesModule } from "angular-datatables";
 
 const routes: Routes = [
   {path:'',component: LoginComponent},
-  { path: 'marketing', component: MarketingComponent, canActivate: [AuthGuard] },
-  { path: 'stock', component: StockComponent, canActivate: [AuthGuard] },
+  { path: 'marketing', component: MarketingComponent, canActivate: [] },
+  { path: 'stock', component: StockComponent, canActivate: [] },
   { path: 'logistique', component: LogistiqueComponent, canActivate: [] },
-  { path: 'production', component: ProductionComponent, canActivate: [AuthGuard] },
+  { path: 'production', component: ProductionComponent, canActivate: [] },
   { path: 'historique', component: HistoriqueComponent, canActivate: [] },
   { path: 'notification', component: NotificationComponent, canActivate: [] },
 
