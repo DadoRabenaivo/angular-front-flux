@@ -8,18 +8,20 @@
             <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Nom</th>
                     <th scope="col">Référence</th>
+                    <th scope="col">Nom</th>
                     <th scope="col">Etat</th>
                     <th scope="col">Statut</th>
+                    <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">Four</th>
-                    <td>F1COL6</td>
-                    <td>Bonne</td>
-                    <td>Libre</td>
+                  <tr *ngFor="let equipment of equipments">
+                    <!-- <th scope="row">Four</th> -->
+                    <td>{{ equipment.Ref }}</td>
+                    <td>{{ equipment.Name }}</td>
+                    <td>{{ equipment.Usability > 50 ? "En bon état" : " Besoin de maintenance" }}</td>
+                    <td>{{ equipment.InStock ? equipment.InStock + " en stock" : "Non disponible"}}</td>
                     <td> 
                         <a type="button" class="btn btn-primary p-1" data-bs-toggle="modal" data-bs-target="#modifierModal">Modifier</a>
                     </td>

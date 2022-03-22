@@ -18,17 +18,17 @@ import { HistoriqueComponent } from './components/historique/historique.componen
 import { NotificationComponent } from './components/notification/notification.component';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from 'src/auth/auth.guard';
-
+import { DataTablesModule } from "angular-datatables";
 
 
 const routes: Routes = [
   {path:'',component: LoginComponent},
   { path: 'marketing', component: MarketingComponent, canActivate: [AuthGuard] },
   { path: 'stock', component: StockComponent, canActivate: [AuthGuard] },
-  { path: 'logistique', component: LogistiqueComponent, canActivate: [AuthGuard] },
+  { path: 'logistique', component: LogistiqueComponent, canActivate: [] },
   { path: 'production', component: ProductionComponent, canActivate: [AuthGuard] },
-  { path: 'historique', component: HistoriqueComponent, canActivate: [AuthGuard] },
-  { path: 'notification', component: NotificationComponent, canActivate: [AuthGuard] },
+  { path: 'historique', component: HistoriqueComponent, canActivate: [] },
+  { path: 'notification', component: NotificationComponent, canActivate: [] },
 
 ]
 @NgModule({
@@ -41,7 +41,8 @@ const routes: Routes = [
     [RouterModule.forRoot(routes)],
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
