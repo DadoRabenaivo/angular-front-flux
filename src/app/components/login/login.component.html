@@ -10,15 +10,11 @@
                 <div class="mt-3 container">
                     <input [(ngModel)]="password" type="password" class="form-control" id="inputPassword" placeholder="Mot de passe">
                 </div>
-                <div class="mt-3 container">
+                <!-- <div class="mt-3 container">
                     <select class="form-select text-secondary" aria-label="Default select example">
-                        <option selected>Département</option>
-                        <option value="1">Marketing</option>
-                        <option value="2">Production</option>
-                        <option value="3">Logistique</option>
-                        <option value="4">Stock</option>
-                      </select>
-                </div>
+                      <option *ngFor="let department of departments" [value]="department.Id">{{ department.Name }}</option>
+                    </select>
+                </div> -->
                 <button type="button" class="btn btn-outline-light mt-4 mx-auto" (click)="authenticate()">Se connecter</button>
             </div>
           </div>
