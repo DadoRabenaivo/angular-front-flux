@@ -1,2 +1,35 @@
 <app-navbar></app-navbar>
-<p>production works!</p>
+<div class="mt-5 d-flex flex-row">
+    <div class="container fiche-sizing">
+        <div class="container glass-style">
+            <h1>Etat de production</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Nom du produit</th>
+                    <th scope="col">En stock</th>
+                    <th scope="col">Matériel utilisé</th>
+                    <th scope="col">Etat du matériel</th>
+                    <th scope="col">Quantité à produire</th>
+                    <th scope="col">Quantité à produire (SMA)</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let prodProcess of prodProcesses">
+                    <td scope="col">{{ prodProcess.Name }}</td>
+                    <td scope="col">{{ prodProcess.InStock }}</td>
+                    <td scope="col">{{ prodProcess.MaterialName }}</td>
+                    <td scope="col">{{ prodProcess.MaterialUsability }}</td>
+                    <td scope="col">{{ prodProcess.Quantity }}</td>
+                    <td scope="col">{{ prodProcess.QuantitySMA }}</td>
+                    <td> 
+                        <a type="button" class="btn btn-primary p-1" data-bs-toggle="modal" data-bs-target="#modifierModal">Modifier</a>
+                        <a type="button" class="btn btn-danger p-1">Supprimer</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
