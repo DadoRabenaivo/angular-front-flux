@@ -9,7 +9,6 @@
                     <th scope="col">Nom du produit</th>
                     <th scope="col">En stock</th>
                     <th scope="col">Matériel utilisé</th>
-                    <th scope="col">Etat du matériel</th>
                     <th scope="col">Quantité à produire</th>
                     <th scope="col">Quantité à produire (SMA)</th>
                     <th scope="col">Actions</th>
@@ -19,8 +18,9 @@
                 <tr *ngFor="let prodProcess of prodProcesses">
                     <td scope="col">{{ prodProcess.Name }}</td>
                     <td scope="col">{{ prodProcess.InStock }}</td>
-                    <td scope="col">{{ prodProcess.MaterialName }}</td>
-                    <td scope="col">{{ prodProcess.MaterialUsability }}</td>
+                    <td scope="col">
+                        <p *ngFor="let equipment of prodProcess.Equipments">{{ equipment.Name }} - {{ equipment.Usability }}%</p>
+                    </td>
                     <td scope="col">{{ prodProcess.Quantity }}</td>
                     <td scope="col">{{ prodProcess.QuantitySMA }}</td>
                     <td> 

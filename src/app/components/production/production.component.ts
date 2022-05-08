@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdProcess } from 'src/app/interfaces/prodProcess';
+import { ProductionService } from 'src/app/services/production.service';
 
 @Component({
   selector: 'app-production',
@@ -9,35 +10,13 @@ import { ProdProcess } from 'src/app/interfaces/prodProcess';
 export class ProductionComponent implements OnInit {
   prodProcesses : Array<ProdProcess> = []
 
-  constructor() { }
+  constructor(private productionService : ProductionService) { }
 
   ngOnInit(): void {
-    this.prodProcesses.push(
-      {
-        Name: "Croissant",
-        InStock: 84,
-        MaterialName: "Micro-onde",
-        MaterialUsability: "24%",
-        Quantity: 54,
-        QuantitySMA: 125
-    },
-      {
-        Name: "Croissant",
-        InStock: 84,
-        MaterialName: "Micro-onde",
-        MaterialUsability: "24%",
-        Quantity: 54,
-        QuantitySMA: 125
-    },
-      {
-        Name: "Croissant",
-        InStock: 84,
-        MaterialName: "Micro-onde",
-        MaterialUsability: "24%",
-        Quantity: 54,
-        QuantitySMA: 125
-    },
-    )
+    this.productionService.getProductProcesses().subscribe((results) => {
+      console.log(results);
+      return this.prodProcesses = [...results];
+    });
   }
 
 }
