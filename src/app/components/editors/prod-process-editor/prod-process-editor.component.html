@@ -1,0 +1,28 @@
+<div [formGroup]="prodProcessForm" class="form-group">
+  <h2>Processus de production</h2>
+
+  <label for="product">Nom du produit</label>
+  <input class="form-control" id="product" type="text" formControlName="Name">
+
+  <label for="stock">En Stock</label>
+  <input class="form-control" id="stock" type="number" formControlName="InStock">
+  
+  <div class="form-group" formArrayName="Equipments">
+      <h3>Matériels utilisés</h3>
+      <div class="form-group" formGroupName="0">
+        <div *ngFor="let equipment of Equipments.controls; let i=index">
+        <!-- The repeated alias template -->
+            <label for="name-{{ i }}">Nom: </label>
+            <input id="name-{{ i }}" type="text" class="form-control" formControlName="Name">
+            <label for="usability-{{ i }}">Etat: </label>
+            <input id="usability-{{ i }}" type="number" class="form-control" formControlName="Usability">
+        </div>
+        <button type="button" class="btn btn-sm btn-secondary" (click)="addEquipment()">+ Ajouter équipement</button>
+      </div>
+    </div>
+    <label for="quantity">Quantité</label>
+    <input class="form-control" id="quantity" type="text" formControlName="Quantity"/>
+    <label for="quantitySMA">Quantité SMA</label>
+    <input class="form-control" id="quantitySMA" type="number" formControlName="QuantitySMA">
+
+</div>

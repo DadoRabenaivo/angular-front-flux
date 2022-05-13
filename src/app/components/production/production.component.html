@@ -1,35 +1,54 @@
 <app-navbar></app-navbar>
 <div class="mt-5 d-flex flex-row">
-    <div class="container fiche-sizing">
-        <div class="container glass-style">
-            <h1>Etat de production</h1>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Nom du produit</th>
-                    <th scope="col">En stock</th>
-                    <th scope="col">Matériel utilisé</th>
-                    <th scope="col">Quantité à produire</th>
-                    <th scope="col">Quantité à produire (SMA)</th>
-                    <th scope="col">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let prodProcess of prodProcesses">
-                    <td scope="col">{{ prodProcess.Name }}</td>
-                    <td scope="col">{{ prodProcess.InStock }}</td>
-                    <td scope="col">
-                        <p *ngFor="let equipment of prodProcess.Equipments">{{ equipment.Name }} - {{ equipment.Usability }}%</p>
-                    </td>
-                    <td scope="col">{{ prodProcess.Quantity }}</td>
-                    <td scope="col">{{ prodProcess.QuantitySMA }}</td>
-                    <td> 
-                        <a type="button" class="btn btn-primary p-1" data-bs-toggle="modal" data-bs-target="#modifierModal">Modifier</a>
-                        <a type="button" class="btn btn-danger p-1">Supprimer</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+  <div class="container fiche-sizing">
+    <div class="container glass-style">
+      <h1>Etat de production</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nom du produit</th>
+            <th scope="col">En stock</th>
+            <th scope="col">Matériel utilisé</th>
+            <th scope="col">Quantité à produire</th>
+            <th scope="col">Quantité à produire (SMA)</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prodProcess of prodProcesses">
+            <td scope="col">{{ prodProcess.Name }}</td>
+            <td scope="col">{{ prodProcess.InStock }}</td>
+            <td scope="col">
+              <p *ngFor="let equipment of prodProcess.Equipments">{{ equipment.Name }} - {{ equipment.Usability }}%</p>
+            </td>
+            <td scope="col">{{ prodProcess.Quantity }}</td>
+            <td scope="col">{{ prodProcess.QuantitySMA }}</td>
+            <td>
+              <a type="button" class="btn btn-primary p-1" data-bs-toggle="modal"
+                data-bs-target="#modifierModal" (click)="selectProdProcess(prodProcess.Id)">Modifier</a>
+              <a type="button" class="btn btn-danger p-1">Supprimer</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
+</div>
+<div class="modal fade glass-style" id="modifierModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-style">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modification</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-prod-process-editor [prodProcess]="selectedProdProcess"></app-prod-process-editor>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-primary">Valider Changement</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -16,9 +16,10 @@ import { LogistiqueComponent } from './components/logistique/logistique.componen
 import { StockComponent } from './components/stock/stock.component';
 import { HistoriqueComponent } from './components/historique/historique.component';
 import { NotificationComponent } from './components/notification/notification.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { DataTablesModule } from "angular-datatables";
+import { ProdProcessEditorComponent } from './components/editors/prod-process-editor/prod-process-editor.component';
 
 
 const routes: Routes = [
@@ -34,7 +35,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent, 
-    LoginComponent, NavbarComponent, MarketingComponent, ProductionComponent, LogistiqueComponent, StockComponent, HistoriqueComponent, NotificationComponent
+    LoginComponent, NavbarComponent, MarketingComponent, ProductionComponent, LogistiqueComponent, StockComponent, HistoriqueComponent, NotificationComponent, ProdProcessEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +43,8 @@ const routes: Routes = [
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    DataTablesModule
+    DataTablesModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
