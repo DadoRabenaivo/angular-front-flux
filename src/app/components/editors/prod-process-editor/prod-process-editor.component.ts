@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormArray, FormBuilder } from '@angular/forms';
 import { ProdProcess } from '../../../interfaces/prodProcess';
 
@@ -7,7 +7,7 @@ import { ProdProcess } from '../../../interfaces/prodProcess';
   templateUrl: './prod-process-editor.component.html',
   styleUrls: ['./prod-process-editor.component.css']
 })
-export class ProdProcessEditorComponent implements OnInit {
+export class ProdProcessEditorComponent implements OnInit, OnChanges {
   @Input() prodProcess? : ProdProcess;
 
   prodProcessForm = this.formBuilder.group({
@@ -15,8 +15,8 @@ export class ProdProcessEditorComponent implements OnInit {
     InStock: 0,
     Equipments: this.formBuilder.array([
       this.formBuilder.group({
-        Name: [''],
-        Usability: 0
+        Name: '',
+        Usability: 100
       })
     ]),
     Quantity: 0,
@@ -29,34 +29,34 @@ export class ProdProcessEditorComponent implements OnInit {
     return this.prodProcessForm.get('Equipments') as FormArray;
   }
 
-  addEquipment() {
-    this.Equipments.push(
-      this.formBuilder.group({
-        Name: [''],
-        Usability: 0
-      })
+  addEquipment(equipment = {Name: '', Usability: 100}) {
+    this.Equipments.push(this.formBuilder.group
+      (equipment)
     );
   }
 
-  ngOnInit(): void {
+  setForm(): void {
     if (this.prodProcess) {
-      console.log(this.prodProcess)
-      this.prodProcessForm.setValue(
-        {
+      this.prodProcessForm.patchValue({
           Name: this.prodProcess.Name,
           InStock: this.prodProcess.InStock,
-          Equipments: () => {
-            let eqs = {};
-            for (let i=0; i< this.prodProcess!.Equipments.length; i++) {
-              (eqs as any)[i] = this.prodProcess!.Equipments[i];
-            }
-            return eqs;
-          },
+          Equipments: [],
           Quantity: this.prodProcess.Quantity,
           QuantitySMA: this.prodProcess.QuantitySMA
-        }
-      )
+        });
+      this.Equipments.clear();
+      for (let equipment of this.prodProcess.Equipments) {
+        this.addEquipment(equipment);
+      }
+
     }
+  }
+
+  ngOnChanges() {
+    this.setForm();
+  }
+
+  ngOnInit(): void {
   }
 
 }

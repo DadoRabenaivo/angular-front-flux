@@ -43,7 +43,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <app-prod-process-editor [prodProcess]="selectedProdProcess"></app-prod-process-editor>
+        <app-prod-process-editor *ngIf="selectedProdProcess.Id != 0" [prodProcess]="selectedProdProcess"></app-prod-process-editor>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
