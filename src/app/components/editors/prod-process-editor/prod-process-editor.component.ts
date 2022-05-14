@@ -12,6 +12,7 @@ export class ProdProcessEditorComponent implements OnInit, OnChanges {
   @Output() saveProdProcessEvent = new EventEmitter<ProdProcess>(); 
 
   prodProcessForm = this.formBuilder.group({
+    Id: 0,
     Name: [''],
     InStock: 0,
     Equipments: this.formBuilder.array([
@@ -39,6 +40,7 @@ export class ProdProcessEditorComponent implements OnInit, OnChanges {
   setForm(): void {
     if (this.prodProcess) {
       this.prodProcessForm.patchValue({
+          Id: this.prodProcess.Id,
           Name: this.prodProcess.Name,
           InStock: this.prodProcess.InStock,
           Equipments: [],

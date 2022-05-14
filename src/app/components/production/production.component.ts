@@ -24,7 +24,14 @@ export class ProductionComponent implements OnInit {
   }
 
   updateProdProcess(newProdProcess: ProdProcess) {
-    console.log(newProdProcess)
+    this.productionService.updateProductProcesses(newProdProcess).subscribe((res) => {
+      this.prodProcesses.map((process) => {
+        if (process.Id == newProdProcess.Id) {
+          process.InStock = newProdProcess.InStock;
+          process.Name = newProdProcess.Name;
+        }
+      })
+    });
   }
 
   ngOnInit(): void {

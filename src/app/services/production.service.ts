@@ -10,11 +10,15 @@ import { ProdProcess } from "../interfaces/prodProcess";
     providedIn: 'root'
 })
 export class ProductionService {
-    private productsUrl = environment.API_URL + "api/products/";
+    private productsUrl = environment.API_URL + "api/products/processes";
 
     constructor(private http: HttpClient) { }
 
     getProductProcesses(): Observable<Array<ProdProcess>> {
-        return this.http.get<Array<ProdProcess>>(`${this.productsUrl}?viewFor=production`);
+        return this.http.get<Array<ProdProcess>>(`${this.productsUrl}`);
+    }
+
+    updateProductProcesses(prodProcess : ProdProcess): Observable<Array<ProdProcess>> {
+        return this.http.put<Array<ProdProcess>>(`${this.productsUrl}`, prodProcess);
     }
 }
