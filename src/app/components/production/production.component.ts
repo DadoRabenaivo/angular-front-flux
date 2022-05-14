@@ -23,6 +23,10 @@ export class ProductionComponent implements OnInit {
     this.selectedProdProcess = this.prodProcesses.find(p => p.Id == id)!;
   }
 
+  updateProdProcess(newProdProcess: ProdProcess) {
+    console.log(newProdProcess)
+  }
+
   ngOnInit(): void {
     this.productionService.getProductProcesses().subscribe((results) => {
       return this.prodProcesses = [...results];

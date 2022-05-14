@@ -1,27 +1,51 @@
-<div [formGroup]="prodProcessForm" class="form-group">
-  <h2>Processus de production</h2>
-
-  <label for="product">Nom du produit</label>
-  <input class="form-control" id="product" type="text" formControlName="Name">
-
-  <label for="stock">En Stock</label>
-  <input class="form-control" id="stock" type="number" formControlName="InStock">
-
-  <div class="form-group" formArrayName="Equipments">
-    <h3>Matériels utilisés</h3>
-    <div *ngFor="let equipment of Equipments.controls; let i=index">
-      <div class="form-group" [formGroupName]="i">
-        <label for="name-{{ i }}">Nom: </label>
-        <input id="name-{{ i }}" type="text" class="form-control" formControlName="Name">
-        <label for="usability-{{ i }}">Etat: </label>
-        <input id="usability-{{ i }}" type="number" class="form-control" formControlName="Usability">
+<form class="row align-items-center" [formGroup]="prodProcessForm">
+  <div class="col-12  gy-2">
+    <div class="col-12">
+      <h5>Processus de production</h5>
+    </div>
+    <div class="col-12">
+      <label for="product">Nom du produit</label>
+      <input class="form-control" id="product" type="text" formControlName="Name">
+    </div>
+    <div class="col-12">
+      <label for="stock">En Stock</label>
+      <input class="form-control" id="stock" type="number" formControlName="InStock">
+    </div>
+    <div class="col-12">
+      <label for="quantity">Quantité</label>
+      <input class="form-control" id="quantity" type="text" formControlName="Quantity" />
+    </div>
+    <div class="col-12">
+      <label for="quantitySMA">Quantité SMA</label>
+      <input class="form-control" id="quantitySMA" type="number" formControlName="QuantitySMA">
+    </div>
+  </div>
+  <div class="col-12  gy-2">
+    <div class="col-12">
+      <h5>Matériels utilisés</h5>
+    </div>
+    <div class="col-12  gy-2" formArrayName="Equipments">
+      <div *ngFor="let equipment of Equipments.controls; let i=index" [formGroupName]="i" class="col-12 row gx-1">
+        <div class="col-6">
+          <label for="name-{{ i }}">Nom</label>
+          <input id="name-{{ i }}" type="text" class="form-control" formControlName="Name">
+        </div>
+        <div class="col-6">
+          <label for="usability-{{ i }}">Etat</label>
+          <input id="usability-{{ i }}" type="number" class="form-control" formControlName="Usability">
+        </div>
+      </div>
+      <div class="col-12 mt-3">
+        <button type="button" class="btn btn-sm btn-secondary form-control" (click)="addEquipment()">+ Ajouter équipement</button>
       </div>
     </div>
-    <button type="button" class="btn btn-sm btn-secondary" (click)="addEquipment()">+ Ajouter équipement</button>
   </div>
-  <label for="quantity">Quantité</label>
-  <input class="form-control" id="quantity" type="text" formControlName="Quantity" />
-  <label for="quantitySMA">Quantité SMA</label>
-  <input class="form-control" id="quantitySMA" type="number" formControlName="QuantitySMA">
-
-</div>
+  <div class="col-12 row gy-2 gx-1 flex">
+    <div class="col-md-6 col-12 order-md-0 order-1">
+      <button type="button" class="btn btn-outline-secondary form-control" data-bs-dismiss="modal">Annuler</button>
+    </div>
+    <div class="col-md-6 col-12 order-md-1 order-0">
+      <button type="button" class="btn btn-primary form-control" (click)="saveChanges()" data-bs-dismiss="modal">Valider Changement</button>
+    </div>
+  </div>
+</form>

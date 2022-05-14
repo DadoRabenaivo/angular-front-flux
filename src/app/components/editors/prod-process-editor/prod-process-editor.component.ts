@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder } from '@angular/forms';
 import { ProdProcess } from '../../../interfaces/prodProcess';
 
@@ -9,6 +9,7 @@ import { ProdProcess } from '../../../interfaces/prodProcess';
 })
 export class ProdProcessEditorComponent implements OnInit, OnChanges {
   @Input() prodProcess? : ProdProcess;
+  @Output() saveProdProcessEvent = new EventEmitter<ProdProcess>(); 
 
   prodProcessForm = this.formBuilder.group({
     Name: [''],
@@ -50,6 +51,10 @@ export class ProdProcessEditorComponent implements OnInit, OnChanges {
       }
 
     }
+  }
+
+  saveChanges() {
+    this.saveProdProcessEvent.emit(this.prodProcessForm.value);
   }
 
   ngOnChanges() {
