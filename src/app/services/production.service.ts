@@ -5,6 +5,7 @@ import { User } from "../interfaces/user";
 import { environment } from "src/environments/environment";
 import { Department } from "../interfaces/department";
 import { ProdProcess } from "../interfaces/prodProcess";
+import { Request } from "../interfaces/request";
 
 @Injectable({
     providedIn: 'root'
@@ -20,5 +21,9 @@ export class ProductionService {
 
     updateProductProcesses(prodProcess : ProdProcess): Observable<Array<ProdProcess>> {
         return this.http.put<Array<ProdProcess>>(`${this.productsUrl}`, prodProcess);
+    }
+    
+    sendReplacementRequest(request : Request): Observable<any> {
+        return this.http.put<any>(`${this.productsUrl}`, request);
     }
 }

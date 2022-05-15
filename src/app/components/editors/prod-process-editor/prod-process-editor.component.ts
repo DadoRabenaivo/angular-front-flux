@@ -10,6 +10,7 @@ import { ProdProcess } from '../../../interfaces/prodProcess';
 export class ProdProcessEditorComponent implements OnInit, OnChanges {
   @Input() prodProcess? : ProdProcess;
   @Output() saveProdProcessEvent = new EventEmitter<ProdProcess>(); 
+  @Output() replaceEquipmentEvent = new EventEmitter<any>(); 
 
   prodProcessForm = this.formBuilder.group({
     Id: 0,
@@ -17,6 +18,7 @@ export class ProdProcessEditorComponent implements OnInit, OnChanges {
     InStock: 0,
     Equipments: this.formBuilder.array([
       this.formBuilder.group({
+        Id: 0,
         Name: '',
         Usability: 100
       })
@@ -35,6 +37,10 @@ export class ProdProcessEditorComponent implements OnInit, OnChanges {
     this.Equipments.push(this.formBuilder.group
       (equipment)
     );
+  }
+
+  replaceEquipment(equipment:any) {
+    this.replaceEquipmentEvent.emit(equipment);
   }
 
   setForm(): void {

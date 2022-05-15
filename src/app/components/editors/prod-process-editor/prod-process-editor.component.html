@@ -25,14 +25,17 @@
       <h5>Matériels utilisés</h5>
     </div>
     <div class="col-12  gy-2" formArrayName="Equipments">
-      <div *ngFor="let equipment of Equipments.controls; let i=index" [formGroupName]="i" class="col-12 row gx-1">
-        <div class="col-6">
+      <div *ngFor="let equipment of Equipments.controls; let i=index" [formGroupName]="i" class="col-12 row gx-1 align-items-end">
+        <div class="col">
           <label for="name-{{ i }}">Nom</label>
           <input id="name-{{ i }}" type="text" class="form-control" formControlName="Name">
         </div>
-        <div class="col-6">
+        <div class="col">
           <label for="usability-{{ i }}">Etat</label>
           <input id="usability-{{ i }}" type="number" class="form-control" formControlName="Usability">
+        </div>
+        <div class="col">
+          <button class="btn btn-outline-primary form-control" (click)="replaceEquipment(equipment.value)">Remplacer</button>
         </div>
       </div>
       <div class="col-12 mt-3">
