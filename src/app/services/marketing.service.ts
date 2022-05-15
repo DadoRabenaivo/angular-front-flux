@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { Product } from "../interfaces/product";
 import { Client } from "../interfaces/client";
+import { ProductDetail } from "../interfaces/productDetail";
 
 @Injectable({
     providedIn: 'root'
@@ -13,8 +13,8 @@ export class MarketingService {
 
     constructor(private http: HttpClient) { }
 
-    getProducts(): Observable<Array<Product>> {
-        return this.http.get<Array<Product>>(this.url + "api/products/");
+    getProducts(): Observable<Array<ProductDetail>> {
+        return this.http.get<Array<ProductDetail>>(this.url + "api/products/");
     }
 
     getClients(): Observable<Array<Client>> {

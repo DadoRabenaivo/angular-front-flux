@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from 'src/app/interfaces/client';
 import { Product } from 'src/app/interfaces/product';
+import { ProductDetail } from 'src/app/interfaces/productDetail';
 import { MarketingService } from 'src/app/services/marketing.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 
@@ -12,7 +13,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 export class MarketingComponent implements OnInit {
 
   clients : Client[] = [];
-  products : Product[] = [];
+  productDetails : ProductDetail[] = [];
 
   constructor(private marketingService: MarketingService) { }
 
@@ -38,7 +39,7 @@ export class MarketingComponent implements OnInit {
   fetchProducts() {
     this.marketingService.getProducts().subscribe(
       (data) => {
-        this.products = data;
+        this.productDetails = data;
       }
     )
   }

@@ -11,16 +11,16 @@
                     <th scope="col">Nom</th>
                     <th scope="col">Score</th>
                     <th scope="col">Prix</th>
-                    <th scope="col">En stock</th>
+                    <th scope="col">Prix SMA</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let product of products">
-                    <td scope="col">{{ product.Name }}</td>
-                    <td scope="col">{{ product.Score }}</td>
-                    <td scope="col">{{ product.Price + " MGA" }}</td>
-                    <td scope="col">{{ product.InStock }}</td>
+                  <tr *ngFor="let pDetail of productDetails">
+                    <td scope="col">{{ pDetail.Product.Name }}</td>
+                    <td scope="col">{{ pDetail.Product.Score }}</td>
+                    <td scope="col">{{ pDetail.Product.Price + " MGA" }}</td>
+                    <td scope="col">{{ pDetail.SuggPrice }}</td>
                     <td> 
                         <a type="button" class="btn btn-primary p-1" data-bs-toggle="modal" data-bs-target="#modifierModal">Modifier</a>
                         <a type="button" class="btn btn-danger p-1">Supprimer</a>
